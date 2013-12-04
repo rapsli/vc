@@ -4,10 +4,14 @@ var activePair = 'ltc_btc';
 
 (function() {
     $(document).ready(function() {
+        if ($.cookie('activePair') !== undefined) {
+            activePair = $.cookie('activePair');
+        }
         setTimer(1);
     });
     $( "#result" ).on( "click", "tr.select_pair", function() {
         activePair = $( this ).attr('pair');
+        $.cookie("activePair", activePair);
     });
 })();
 

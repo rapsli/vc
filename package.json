@@ -1,5 +1,5 @@
 {
-  "name": "Virtual-Currency-Dashboard",
+  "name": "cryptodb",
   "description": "to show you a Dashboard with your current funds",
   "version": "0.0.1",
   "scripts": {
@@ -7,9 +7,7 @@
   },
   "dependencies": {
     "express": "3.x",
-    "mongoose": "*",
-    "request": "*",
     "btce": "*",
-    "xml2js": "*"
+    "underscore":"*"
   }
 }

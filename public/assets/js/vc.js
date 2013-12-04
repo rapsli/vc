@@ -19,7 +19,7 @@ var activePair = 'ltc_btc';
 var fetchData = function() {
     $.getJSON('/update', function(data) {
         var string = "<table class='table'>";
-        string += "<thead><tr><th></th><th>Sell</th><th>Buy</th><th>High</th><th>Low</th></tr></thead>";
+        string += "<thead><tr><th></th><th>Buy</th><th>Sell</th><th>High</th><th>Low</th></tr></thead>";
         for (var item in data) {
             string += renderItem(item, data[item]);
             if (item == activePair) {
@@ -40,13 +40,13 @@ var renderItem = function(pair, item) {
     }
     result = "";
     result += "<tr class='select_pair "+activeClass+"' pair='"+pair+"'><td class='strong'>" + pair + "</td>";
-    result += "<td>" + item.sell + "</td><td>" + item.buy + "</td>";
+    result += "<td>" + item.buy + "</td><td>" + item.sell + "</td>";
     result += "<td>" + item.high + "</td><td>" + item.low + "</td></tr>";
     return result;
 }
 
 var updateTitle = function(item) {
-    $('title').html(item.sell + " / " + item.buy);
+    $('title').html(item.buy + " / " + item.sell);
 }
 
 var setTimer = function(timer) {

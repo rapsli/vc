@@ -1,6 +1,8 @@
 var step = 5; // in secondes
 var initial;
 var activePair = 'ltc_btc';
+var counter = 0;
+var intervalCounter = undefined;
 
 (function() {
     $(document).ready(function() {
@@ -28,6 +30,11 @@ var fetchData = function() {
         }
         string += "</table>";
         $("#result").html(string);
+        if (intervalCounter != undefined) {
+            clearInterval(intervalCounter);
+        }
+        counter = 0;
+        intervalCounter = setInterval(updateCounter, 1000);
         setTimer(5000);
     });
     
@@ -51,5 +58,10 @@ var updateTitle = function(item) {
 
 var setTimer = function(timer) {
     setTimeout(function() {fetchData();}, timer);
+}
+
+var updateCounter = function() {
+    counter++;
+    $('#counter').html(counter +"s");
 }
 

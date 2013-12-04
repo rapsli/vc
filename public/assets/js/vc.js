@@ -36,6 +36,9 @@ var fetchData = function() {
         counter = 0;
         intervalCounter = setInterval(updateCounter, 1000);
         setTimer(5000);
+    })
+    .fail(function(){
+        setTimer(5000);
     });
     
 }
